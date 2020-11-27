@@ -1,10 +1,10 @@
-## App name: Restaurent Review System
+# App name: Restaurent Review System
 
 Description: A website where foodies can rate a restaurent or find someplace great.
 
 Type of app: Web application
 
-# Main features:
+## Main features:
 
 1. admin panel to control users.
 2. users can register and login.
