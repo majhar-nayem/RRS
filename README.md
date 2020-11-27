@@ -1,6 +1,6 @@
-# App name: Restaurent Review System
+# App name: Restaurant Review System
 
-Description: A website where foodies can rate a restaurent or find someplace great.
+Description: A website where foodies can find someplace great to dine and rate the experience.
 
 Type of app: Web application
 
