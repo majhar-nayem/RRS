@@ -22,11 +22,11 @@ Operating system: Any
 
 How to use: link will be provided later.
 
-Written in: html, javascript, css, Laravel(php)
+Written in: html, javascript, css, php
 
-Tools/framework used: Xampp, 
+Tools/framework used: Xampp, Laravel(PHP), Digitalocean, linux(ubuntu) server, PhpStrom IDE,
 
-References: 
+References: https://laravel.com
 
 Developers: 
 Majharul Islam (1621381042) [ CSE327 Section 7 ] {Product Owner}
