@@ -60,7 +60,7 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
-        //
+        $restaurant = Restaurant::find($id);
     }
 
     /**
@@ -71,7 +71,8 @@ class RestaurantController extends Controller
      */
     public function edit($id)
     {
-        //
+
+
     }
 
     /**
@@ -83,7 +84,22 @@ class RestaurantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            "name" => ['required'],
+            "area" => ['required'],
+            "address" => ['required'],
+            "type" => ['required'],
+            "note" => 'string'
+        ]);
+
+        $data = $request->only(["name",
+            "area",
+            "address",
+            "type",
+            "ratings",
+            "note"]);
+        $restaurant = Restaurant::find($id);
+        $restaurant->update($data);
     }
 
     /**
