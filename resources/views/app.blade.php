@@ -358,22 +358,21 @@
                             <!-- trend list start -->
                             <ul class="trend-list">
 
-
+                                @foreach($top_restaurants as $restaurant)
                                 <!-- trend list item -->
                                 <li class="trend-list-item">
                                     <!-- trend list link start -->
                                     <a href="" class="trend-list-link px-3 py-3 block">
-                                        <span class="block text-xs text-gray-600"> 1 - Trending worldwide </span>
-                                        <span class="block text-base font-semibold mt-1 text-black"> #AskSRK </span>
-                                        <span class="block text-sm font-normal text-gray-600"> 47.4k Tweets </span>
+                                        <span class="block text-base font-semibold mt-1 text-black"> {{ $restaurant['name'] }} </span>
+                                        <span class="block text-sm font-normal text-gray-600">Ratings: {{ $restaurant->ratings }} out of 5 </span>
                                         <span class="block text-xs font-normal text-gray-600 clearfix mt-1">
-                                                <img class="inline-block w-4 rounded-full float-left mr-2" src="https://pbs.twimg.com/profile_images/1170222681553162240/9ZaLRf3r_normal.jpg" alt="trending image" /> The Quint is Tweetng about this
+                                                <img class="inline-block w-4 rounded-full float-left mr-2" src="https://pbs.twimg.com/profile_images/1170222681553162240/9ZaLRf3r_normal.jpg" alt="trending image" /> {{ $restaurant->rater_no }} people rate this restaurant
                                             </span>
                                     </a>
                                     <!-- trend list link end -->
                                 </li>
                                 <!-- trend list item end -->
-
+                                    @endforeach
 
 
                             </ul>
