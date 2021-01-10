@@ -425,7 +425,7 @@
 
                             <!-- footer list item start -->
                             <li class="footer-list-item float-left ">
-                                <span class="footer-item-link inline-block px-2 py-1 text-gray-600">&copy; 2019 Twitter Inc.</span>
+                                <span class="footer-item-link inline-block px-2 py-1 text-gray-600">&copy; 2021 RRS Inc.</span>
                             </li>
                             <!-- footer list item end -->
 
