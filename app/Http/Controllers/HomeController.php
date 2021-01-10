@@ -13,11 +13,11 @@ class HomeController extends Controller
                                         ->orderBy('rater_no', 'desc')
                                         ->limit(5)->get();
         $restaurants = Restaurant::all();
-        $posts = Post::latest()->get();
+        $posts = Post::with(['user','restaurant'])->latest()->get();
 
         return view('app', [
             'top_restaurants' => $top_restaurants,
-            'restaurant' =>$restaurants,
+            'restaurants' =>$restaurants,
             'posts' => $posts
         ]);
     }

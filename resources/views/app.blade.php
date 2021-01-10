@@ -136,18 +136,20 @@
                     <div class="flex">
                         <div class="w-full">
                             <div class="px-1 mt-4">
-                               <select class="p-2 rounded-md">
-                                   <option>
-                                       <span>Sultan's Dine</span>
+                               <select class="p-2 rounded-md" name="restaurant_id">
+                                   <option>Select The Restaurant(Optional)</option>
+                                   @foreach($restaurants as $restaurant)
+                                   <option value="{{ $restaurant->id }}">
+                                       <span>{{ $restaurant->name }}</span>
                                    </option>
-                                   <option>
-                                       <span>Kacchi Bhai</span>
-                                   </option>
+                                   @endforeach
                                </select>
 
                             </div>
-                            <div class="textarea px-2 mt-4">
-                                <textarea class="w-full h-10 focus:outline-none resize-none" placeholder="What's your experience?" rows="2"></textarea>
+                            <form action="{{ url('/user/post') }}" method="POST">
+                                @csrf
+                            <div class="textarea px-2 mt-6">
+                                <textarea name="comment" class="w-full h-15 focus:outline-none resize-none" placeholder="What's your experience?" rows="4"></textarea>
                             </div>
                             <div class="textarea-footer">
                                 <div class="flex">
@@ -179,13 +181,14 @@
 
                                                 <li class="inline-block mr-1">
                                                         <span class="w-8 border p-1 twitter-border-color-light twitter-color-light rounded-full">
-                                                            <svg viewBox="0 0 24 24" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M19.75 11H13V4.25c0-.553-.447-1-1-1s-1 .447-1 1V11H4.25c-.553 0-1 .447-1 1s.447 1 1 1H11v6.75c0 .553.447 1 1 1s1-.447 1-1V13h6.75c.553 0 1-.447 1-1s-.447-1-1-1z"></path></g></svg>
+                                                               <svg viewBox="0 0 24 24" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M19.75 11H13V4.25c0-.553-.447-1-1-1s-1 .447-1 1V11H4.25c-.553 0-1 .447-1 1s.447 1 1 1H11v6.75c0 .553.447 1 1 1s1-.447 1-1V13h6.75c.553 0 1-.447 1-1s-.447-1-1-1z"></path></g></svg>
+
                                                         </span>
                                                 </li>
 
                                                 <li class="text-right m-1 mb-2">
                                                         <span class="w-20 inline-block">
-                                                            <button class="p-3 py-2 twitter-bg text-white w-full rounded-full font-bold tracking-wide ">Tweet</button>
+                                                            <button type="submit" class="p-3 py-2 twitter-bg text-white w-full rounded-full font-bold tracking-wide ">Post</button>
                                                         </span>
                                                 </li>
 
@@ -194,6 +197,7 @@
                                     </div>
                                 </div>
                             </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -210,7 +214,8 @@
                 <div class="tweets-wrapper">
                     <div class="innner">
 
-                        <!-- tweet start -->
+                        @foreach($posts as $post)
+                        <!-- post start -->
                         <div class="tweet cursor-pointer hover:bg-gray-100 transition-3 border border-l-0 border-r-0 border-t-0 p-4 pb-0">
                             <div class="flex">
                                 <div class="w-auto">
@@ -227,35 +232,43 @@
                                     <div class="tweet-tweet">
                                         <!-- tweet info bar start -->
                                         <div class="tweet-info-bar flex items-center ">
+
                                             <!-- twet username start -->
                                             <span class="tweet-username relative block">
-                                                    <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">Shelly Walia</a>
+                                                @if(!is_null($post->user_name))
+                                                    <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">{{ $post->user->name }}</a>
+                                                @else
+                                                    <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">Anonymous User</a>
+                                                @endif
                                                     <span class="w-4 inline-block twitter-color verified">
                                                         <svg viewBox="0 0 24 24" aria-label="Verified account" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1xvli5t r-9cviqr r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .494.083.964.237 1.4-1.272.65-2.147 2.018-2.147 3.6 0 1.495.782 2.798 1.942 3.486-.02.17-.032.34-.032.514 0 2.21 1.708 4 3.818 4 .47 0 .92-.086 1.335-.25.62 1.334 1.926 2.25 3.437 2.25 1.512 0 2.818-.916 3.437-2.25.415.163.865.248 1.336.248 2.11 0 3.818-1.79 3.818-4 0-.174-.012-.344-.033-.513 1.158-.687 1.943-1.99 1.943-3.484zm-6.616-3.334l-4.334 6.5c-.145.217-.382.334-.625.334-.143 0-.288-.04-.416-.126l-.115-.094-2.415-2.415c-.293-.293-.293-.768 0-1.06s.768-.294 1.06 0l1.77 1.767 3.825-5.74c.23-.345.696-.436 1.04-.207.346.23.44.696.21 1.04z"></path></g></svg>
                                                     </span>
 
                                                 </span>
-                                            <!-- twet username end -->
-
-                                            <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">@shellywalia</span>
+                                            <!-- post user name end -->
+                                            @if(!is_null($post->restaurent))
+                                            <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{ $post->restaurent->name }}</span>
+                                            @endif
                                             <span class="inline-block ml-1">·</span>
-                                            <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">1h</span>
+                                            <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{ $post->created_at->diffForHumans() }}</span>
                                         </div>
                                         <!-- tweet info bar end -->
                                         <!-- tweet detail start -->
                                         <div class="tweet-detail">
                                             <p>
-                                                The legacy of tomorrow will come from the work we put in today <a class="font-semibold" href="##MondayMotivation">#MondayMotivation</a>
+                                                {{ $post->comment }}
                                             </p>
                                         </div>
                                         <!-- tweet detail end -->
+                                        @if(!is_null($post->image))
                                         <!-- tweet images start -->
                                         <div class="tweet-images py-3 pb-1">
                                                 <span class="inline-block rounded-lg overflow-hidden h-64 shadow">
-                                                    <img class="h-64 object-cover object-bottom w-full" src="https://pbs.twimg.com/media/EG0lmlBX4AAdJpY?format=jpg&name=900x900" alt="tweet image">
+                                                    <img class="h-64 object-cover object-bottom w-full" src="{{ $post->image }}" alt="tweet image">
                                                 </span>
                                         </div>
                                         <!-- tweet images end -->
+                                        @endif
 
                                         <!-- tweet footer start -->
                                         <div class="tweet-footer">
@@ -306,7 +319,8 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- tweet end -->
+                        <!-- post end -->
+                            @endforeach
 
                     </div>
                 </div>
