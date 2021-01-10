@@ -15,7 +15,7 @@ class HomeController extends Controller
         $restaurants = Restaurant::all();
         $posts = Post::with(['user','restaurant'])->latest()->get();
 
-        return view('app', [
+        return view('home', [
             'top_restaurants' => $top_restaurants,
             'restaurants' =>$restaurants,
             'posts' => $posts

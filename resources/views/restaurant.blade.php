@@ -1,126 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('app')
 
-<head>
-
-    <meta charset="UTF-8">
-    <title>Restaurent Review System</title>
-    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/GrayGrids/LineIcons/LineIcons.css">
-    <link rel="stylesheet" href="{{asset('template')}}/css/stylesheets/screen.css">
-</head>
-
-<body class="bg-white">
-
-<!-- wrapper start -->
-<div class="">
-
-
-    <!-- container start -->
-    <div class="container mx-auto">
-
-        <div class="flex md:flex-no-wrap flex-wrap">
-
-
-            <!-- left colulmn start -->
-            <div class="md:w-1/2 w-full bg-white">
-
-                <div class="inner pr-12 px-4 py-1" id="leftNavbar">
-
-                    <!-- logo start -->
-                    <div class="logo twitter-color w-12 transition-3 twitter-light-blue-on-hover p-2 ml-2 cursor-pointer rounded-full">
-                        <svg viewBox="0 0 24 24"><g><path d="M23.643 4.937c-.835.37-1.732.62-2.675.733.962-.576 1.7-1.49 2.048-2.578-.9.534-1.897.922-2.958 1.13-.85-.904-2.06-1.47-3.4-1.47-2.572 0-4.658 2.086-4.658 4.66 0 .364.042.718.12 1.06-3.873-.195-7.304-2.05-9.602-4.868-.4.69-.63 1.49-.63 2.342 0 1.616.823 3.043 2.072 3.878-.764-.025-1.482-.234-2.11-.583v.06c0 2.257 1.605 4.14 3.737 4.568-.392.106-.803.162-1.227.162-.3 0-.593-.028-.877-.082.593 1.85 2.313 3.198 4.352 3.234-1.595 1.25-3.604 1.995-5.786 1.995-.376 0-.747-.022-1.112-.065 2.062 1.323 4.51 2.093 7.14 2.093 8.57 0 13.255-7.098 13.255-13.254 0-.2-.005-.402-.014-.602.91-.658 1.7-1.477 2.323-2.41z"></path></g></svg>
+    @section('content')
+            <!-- restaurant content start -->
+            <div class="w-full py-4 border border-t-0 border-b-0">
+            <div class="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
+                <div id="homeNavbar" class="middle-column-header border border-t-0 border-r-0 bg-white border-l-0">
+                    <div class="inner px-3 py-3">
+                        <div class="flex">
+                            <div class="w-1/2">
+                                <div class="inner">
+                                    <a href="" class="text-xl font-bold text-black">Restaurants</a>
+                                </div>
+                            </div>
+                            <div class="w-1/2">
+                                <div class="inner text-right relative">
+                                        <span class="magic-icon w-10 twitter-color right-0 top-0 absolute rounded-full cursor-pointer p-2 transition-3 twitter-light-blue-on-hover">
+                                            <svg viewBox="0 0 24 24" class="r-13gxpu9 r-4qtqp9 r-yyyyoo r-1q142lx r-50lct3 r-dnmrzs r-bnwqim r-1plcrui r-lrvibr"><g><path d="M22.772 10.506l-5.618-2.192-2.16-6.5c-.102-.307-.39-.514-.712-.514s-.61.207-.712.513l-2.16 6.5-5.62 2.192c-.287.112-.477.39-.477.7s.19.585.478.698l5.62 2.192 2.16 6.5c.102.306.39.513.712.513s.61-.207.712-.513l2.16-6.5 5.62-2.192c.287-.112.477-.39.477-.7s-.19-.585-.478-.697zm-6.49 2.32c-.208.08-.37.25-.44.46l-1.56 4.695-1.56-4.693c-.07-.21-.23-.38-.438-.462l-4.155-1.62 4.154-1.622c.208-.08.37-.25.44-.462l1.56-4.693 1.56 4.694c.07.212.23.382.438.463l4.155 1.62-4.155 1.622zM6.663 3.812h-1.88V2.05c0-.414-.337-.75-.75-.75s-.75.336-.75.75v1.762H1.5c-.414 0-.75.336-.75.75s.336.75.75.75h1.782v1.762c0 .414.336.75.75.75s.75-.336.75-.75V5.312h1.88c.415 0 .75-.336.75-.75s-.335-.75-.75-.75zm2.535 15.622h-1.1v-1.016c0-.414-.335-.75-.75-.75s-.75.336-.75.75v1.016H5.57c-.414 0-.75.336-.75.75s.336.75.75.75H6.6v1.016c0 .414.335.75.75.75s.75-.336.75-.75v-1.016h1.098c.414 0 .75-.336.75-.75s-.336-.75-.75-.75z"></path></g></svg>
+                                        </span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <!-- logo end -->
-
-                    <!-- side navigation start -->
-                    <div class="side-navigation my-2">
-
-                        <!-- side navigation list start -->
-                        <ul class="side-navigation-list">
-
-
-                            <!-- side navigation list item start -->
-                            <li class="side-navigation-list-item">
-                                <a href="#" class="active clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full">
-                                    <i class="icon float-left">
-                                        <svg viewBox="0 0 24 24" ><g><path d="M22.58 7.35L12.475 1.897c-.297-.16-.654-.16-.95 0L1.425 7.35c-.486.264-.667.87-.405 1.356.18.335.525.525.88.525.16 0 .324-.038.475-.12l.734-.396 1.59 11.25c.216 1.214 1.31 2.062 2.66 2.062h9.282c1.35 0 2.444-.848 2.662-2.088l1.588-11.225.737.398c.485.263 1.092.082 1.354-.404.263-.486.08-1.093-.404-1.355zM12 15.435c-1.795 0-3.25-1.455-3.25-3.25s1.455-3.25 3.25-3.25 3.25 1.455 3.25 3.25-1.455 3.25-3.25 3.25z"></path></g></svg>
-                                    </i>
-                                    <span class="name float-left pl-5 font-bold text-xl">Home</span>
-                                </a>
-                            </li>
-                            <!-- side navigation list item end -->
-
-                            <!-- side navigation list item start -->
-                            <li class="side-navigation-list-item">
-                                <a href="#" class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full">
-                                    <i class="icon float-left">
-                                        <svg viewBox="0 0 24 24"><g><path d="M21 7.337h-3.93l.372-4.272c.036-.412-.27-.775-.682-.812-.417-.03-.776.27-.812.683l-.383 4.4h-6.32l.37-4.27c.037-.413-.27-.776-.68-.813-.42-.03-.777.27-.813.683l-.382 4.4H3.782c-.414 0-.75.337-.75.75s.336.75.75.75H7.61l-.55 6.327H3c-.414 0-.75.336-.75.75s.336.75.75.75h3.93l-.372 4.272c-.036.412.27.775.682.812l.066.003c.385 0 .712-.295.746-.686l.383-4.4h6.32l-.37 4.27c-.036.413.27.776.682.813l.066.003c.385 0 .712-.295.746-.686l.382-4.4h3.957c.413 0 .75-.337.75-.75s-.337-.75-.75-.75H16.39l.55-6.327H21c.414 0 .75-.336.75-.75s-.336-.75-.75-.75zm-6.115 7.826h-6.32l.55-6.326h6.32l-.55 6.326z"></path></g></svg>
-                                    </i>
-                                    <span class="name float-left pl-5 font-bold text-xl">Restaurants</span>
-                                </a>
-                            </li>
-
-
-                            <!-- side navigation list item start -->
-                            <li class="side-navigation-list-item">
-                                <a href="#" class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full">
-                                    <i class="icon float-left image">
-                                        <img src="https://pbs.twimg.com/profile_images/1192060406627545089/SWlYzx4n_normal.jpg" alt="profile image block" class="rounded-full shadow">
-                                    </i>
-                                    <span class="name float-left pl-5 font-bold text-xl">Profile</span>
-                                </a>
-                            </li>
-                            <!-- side navigation list item end -->
-
-
-                            <!-- side navigation list item start -->
-                            <li class="side-navigation-list-item">
-                                <a href="#" class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full">
-                                    <i class="icon float-left">
-                                        <svg viewBox="0 0 24 24"><g><path d="M16.5 10.25c-.965 0-1.75.787-1.75 1.75s.784 1.75 1.75 1.75c.964 0 1.75-.786 1.75-1.75s-.786-1.75-1.75-1.75zm0 2.5c-.414 0-.75-.336-.75-.75 0-.413.337-.75.75-.75s.75.336.75.75c0 .413-.336.75-.75.75zm-4.5-2.5c-.966 0-1.75.787-1.75 1.75s.785 1.75 1.75 1.75 1.75-.786 1.75-1.75-.784-1.75-1.75-1.75zm0 2.5c-.414 0-.75-.336-.75-.75 0-.413.337-.75.75-.75s.75.336.75.75c0 .413-.336.75-.75.75zm-4.5-2.5c-.965 0-1.75.787-1.75 1.75s.785 1.75 1.75 1.75c.964 0 1.75-.786 1.75-1.75s-.787-1.75-1.75-1.75zm0 2.5c-.414 0-.75-.336-.75-.75 0-.413.337-.75.75-.75s.75.336.75.75c0 .413-.336.75-.75.75z"></path><path d="M12 22.75C6.072 22.75 1.25 17.928 1.25 12S6.072 1.25 12 1.25 22.75 6.072 22.75 12 17.928 22.75 12 22.75zm0-20C6.9 2.75 2.75 6.9 2.75 12S6.9 21.25 12 21.25s9.25-4.15 9.25-9.25S17.1 2.75 12 2.75z"></path></g></svg>                                        </i>
-                                    <span class="name float-left pl-5 font-bold text-xl">About Us</span>
-                                </a>
-                            </li>
-                            <!-- side navigation list item end -->
-
-
-                        </ul>
-                        <!-- side navigation list end -->
-
-                    </div>
-                    <!-- side navigation end -->
-
-
-                    <!-- right side tweet button start -->
-                    <div class="tweet-button my-4">
-                        <button class="p-3 twitter-bg text-white w-full rounded-full font-bold tracking-wide">RRS</button>
-                    </div>
-                    <!-- right side tweet button end -->
-
-
                 </div>
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Address
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Type
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            Ratings
+                        </th>
 
+                    </tr>
+                    </thead>
+                    @foreach($restaurants as $restaurant)
+                    <tbody class="bg-white divide-y divide-gray-200">
+                    <tr>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="flex items-center">
+                                <div class="flex-shrink-0 h-10 w-10">
+                                    <img class="h-10 w-10 rounded-full" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=facearea&amp;facepad=4&amp;w=256&amp;h=256&amp;q=60" alt="">
+                                </div>
+                                <div class="ml-4">
+                                    <div class="text-sm font-medium text-gray-900">
+                                        {{ $restaurant->name }}
+                                    </div>
+
+                                </div>
+                            </div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                            <div class="text-sm text-gray-900">{{ $restaurant->area }}</div>
+                            <div class="text-sm text-gray-500">{{ $restaurant->address }}</div>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap">
+                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
+                  {{ $restaurant->type }}
+                </span>
+                        </td>
+                        <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                            {{ $restaurant->ratings }} out of 5
+                        </td>
+
+                    </tr>
+
+                    <!-- More rows... -->
+                    </tbody>
+                    @endforeach
+                </table>
             </div>
-            <!-- left colulmn end -->
-
-
-
         </div>
-
-    </div>
-    <!-- container end -->
-
-
-</div>
-<!-- wrapper end-->
-
-
-<script src="{{ asset('template') }}/js/lib/jquery.min.js"></script>
-<script src="{{ asset('template') }}/js/lib/jquery.sticky.js"></script>
-<script src="{{ asset('template') }}/js/script.js"></script>
-
-</body>
-
-</html>
-
+            <!--restaurant content end -->
+    @endsection
