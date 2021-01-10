@@ -17,4 +17,8 @@ class Restaurant extends Model
         "ratings",
         "note"
     ];
+
+    public function posts(){
+        return $this->hasMany(Post::class);
+    }
 }
