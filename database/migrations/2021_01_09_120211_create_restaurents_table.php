@@ -20,6 +20,7 @@ class CreateRestaurentsTable extends Migration
             $table->string('address');
             $table->string('type')->nullable();
             $table->string('ratings')->default('0');
+            $table->string('rater_no')->default('0');
             $table->string('note')->nullable();
             $table->timestamps();
         });
@@ -32,6 +33,6 @@ class CreateRestaurentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('restaurents');
+        Schema::dropIfExists('restaurants');
     }
 }
