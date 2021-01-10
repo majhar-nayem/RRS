@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class PostController extends Controller
 {
     public function store(Request $request){
+        $this->validate($request, [
+           'comment' => 'required'
+        ]);
         $data = $request->all();
         if (Auth::check()){
             $data['user_id'] = Auth::id();

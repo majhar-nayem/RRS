@@ -94,7 +94,7 @@
 
                     <!-- right side tweet button start -->
                     <div class="tweet-button my-4">
-                        <button class="p-3 twitter-bg text-white w-full rounded-full font-bold tracking-wide">Tweet</button>
+                        <button class="p-3 twitter-bg text-white w-full rounded-full font-bold tracking-wide">RRS</button>
                     </div>
                     <!-- right side tweet button end -->
 
@@ -105,7 +105,7 @@
             <!-- left colulmn end -->
 
 
-            <!-- left colulmn start -->
+            <!-- middle colulmn start -->
             <div class="w-full py-0 border border-t-0 border-b-0 ">
 
                 <!-- middle column header start -->
@@ -135,19 +135,19 @@
                 <div class="new-tweet-textarea p-3 pb-0">
                     <div class="flex">
                         <div class="w-full">
-                            <div class="px-1 mt-4">
-                               <select class="p-2 rounded-md" name="restaurant_id">
-                                   <option>Select The Restaurant(Optional)</option>
-                                   @foreach($restaurants as $restaurant)
-                                   <option value="{{ $restaurant->id }}">
-                                       <span>{{ $restaurant->name }}</span>
-                                   </option>
-                                   @endforeach
-                               </select>
-
-                            </div>
                             <form action="{{ url('/user/post') }}" method="POST">
                                 @csrf
+                                <div class="px-1 mt-4">
+                                    <select class="p-2 rounded-md" name="restaurant_id">
+                                        <option value="{{ null }}">Select The Restaurant(Optional)</option>
+                                        @foreach($restaurants as $restaurant)
+                                            <option value="{{ $restaurant->id }}">
+                                                <span>{{ $restaurant->name }}</span>
+                                            </option>
+                                        @endforeach
+                                    </select>
+
+                                </div>
                             <div class="textarea px-2 mt-6">
                                 <textarea name="comment" class="w-full h-15 focus:outline-none resize-none" placeholder="What's your experience?" rows="4"></textarea>
                             </div>
@@ -233,9 +233,9 @@
                                         <!-- tweet info bar start -->
                                         <div class="tweet-info-bar flex items-center ">
 
-                                            <!-- twet username start -->
+                                            <!-- post username start -->
                                             <span class="tweet-username relative block">
-                                                @if(!is_null($post->user_name))
+                                                @if(!is_null($post->user))
                                                     <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">{{ $post->user->name }}</a>
                                                 @else
                                                     <a href="#" class="hover:underline text-gray-900 font-bold text-base mr-1">Anonymous User</a>
@@ -246,9 +246,8 @@
 
                                                 </span>
                                             <!-- post user name end -->
-                                            @if(!is_null($post->restaurent))
-                                            <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{ $post->restaurent->name }}</span>
-                                            @endif
+
+                                            <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{ $post->restaurent->name ?? null }}</span>
                                             <span class="inline-block ml-1">·</span>
                                             <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{ $post->created_at->diffForHumans() }}</span>
                                         </div>
@@ -468,9 +467,9 @@
 <!-- wrapper end-->
 
 
-<script src="assets/js/lib/jquery.min.js"></script>
-<script src="assets/js/lib/jquery.sticky.js"></script>
-<script src="assets/js/script.js"></script>
+<script src="{{ asset('template') }}/js/lib/jquery.min.js"></script>
+<script src="{{ asset('template') }}/js/lib/jquery.sticky.js"></script>
+<script src="{{ asset('template') }}/js/script.js"></script>
 
 </body>
 
