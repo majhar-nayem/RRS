@@ -54,6 +54,8 @@ class RestaurantController extends Controller
             "ratings",
             "note"]);
         Restaurant::create($data);
+
+        return redirect()->route('restaurants');
     }
 
     /**

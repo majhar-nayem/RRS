@@ -18,5 +18,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/user/post', [PostController::class, 'store' ]);
-Route::get('/user/restaurants', [RestaurantController::class, 'index' ]);
+Route::get('/user/restaurants', [RestaurantController::class, 'index' ])->name('restaurants');
 Route::get('/user/restaurant-add', [RestaurantController::class, 'create' ]);
+Route::post('/user/save-restaurant', [RestaurantController::class, 'store' ]);
