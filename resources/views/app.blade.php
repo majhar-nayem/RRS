@@ -86,6 +86,19 @@
                             </li>
                             <!-- side navigation list item end -->
 
+                            <!-- side navigation list item start -->
+                            <li class="side-navigation-list-item">
+                                <a href="#" class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-blue-600 hover:bg-blue-700">
+                                    <span class="name ml-8 pl-5 font-bold text-xl">Login</span>
+                                </a>
+                            </li>
+                            <li class="side-navigation-list-item">
+                                <a href="#" class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-green-600 hover:bg-blue-700">
+                                    <span class="name ml-8 pl-5 font-bold text-xl">Register</span>
+                                </a>
+                            </li>
+                            <!-- side navigation list item end -->
+
 
                         </ul>
                         <!-- side navigation list end -->
