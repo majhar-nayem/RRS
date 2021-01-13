@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
@@ -106,6 +107,16 @@ class RestaurantController extends Controller
             "note"]);
         $restaurant = Restaurant::find($id);
         $restaurant->update($data);
+    }
+
+    public function like($id){
+        $post = Post::find($id);
+
+        $post->update([
+           'like' => ++ $post->like
+        ]);
+
+        return redirect()->route('home');
     }
 
     /**
