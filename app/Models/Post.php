@@ -11,7 +11,9 @@ class Post extends Model
     protected $fillable =[
         "comment",
         "image",
-        "restaurant_id"
+        "restaurant_id",
+        "ratings",
+        "like"
     ];
     public function comments(){
         return $this->hasMany(Comment::class);

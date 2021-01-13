@@ -15,6 +15,7 @@ class Restaurant extends Model
         "address",
         "type",
         "ratings",
+        "rater_no",
         "note"
     ];
 

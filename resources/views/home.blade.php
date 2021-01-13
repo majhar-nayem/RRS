@@ -44,6 +44,27 @@
                                 </select>
 
                             </div>
+                            <div class="px-1 mt-2">
+                                <select class="p-2 rounded-md" name="ratings">
+                                    <option value="{{ null }}">Rate(optional)</option>
+                                        <option value="1">
+                                            <span>1</span>
+                                        </option>
+                                    <option value="2">
+                                        <span>2</span>
+                                    </option>
+                                    <option value="3">
+                                        <span>3</span>
+                                    </option>
+                                    <option value="4">
+                                        <span>4</span>
+                                    </option>
+                                    <option value="5">
+                                        <span>5</span>
+                                    </option>
+                                </select>
+
+                            </div>
                             <div class="textarea px-2 mt-6">
                                 <textarea name="comment" class="w-full h-15 focus:outline-none resize-none" placeholder="What's your experience?" rows="4"></textarea>
                             </div>
@@ -118,7 +139,9 @@
                                     <!-- tweet user img start -->
                                     <div class="tweet-user-img">
                                             <span class="w-12 rounded-full overflow-hidden mr-2">
-                                                <img src="https://pbs.twimg.com/profile_images/654628951109693440/SZd75JU3_bigger.jpg" alt="tweet user image">
+                                               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+</svg>
                                             </span>
                                     </div>
                                     <!-- tweet user img end -->
@@ -147,6 +170,9 @@
                                             <span class="inline-block ml-1">·</span>
                                             <span class="text-gray-600 text-base font-light tracking-wide inline-block ml-1">{{ $post->created_at->diffForHumans() }}</span>
                                         </div>
+
+                                        <span class="text-bold text-sm text-blue-700">@ {{ $post->restaurant->name ?? 'N/A' }}</span>
+                                        <span class="text-bold text-sm text-green-700">| {{ $post->ratings }} out of 5</span>
                                         <!-- tweet info bar end -->
                                         <!-- tweet detail start -->
                                         <div class="tweet-detail">

@@ -1,7 +1,7 @@
 @extends('app')
 
 @section('content')
-    <div class="-mx-64">
+    <div class="w-full py-4 mt-8 ">
         <h1 class="font-bold mt-4 text-blue-500 text-xl">Add Restaurant</h1>
     <form action="{{ url('/user/save-restaurant') }}" method="POST" class="w-full max-w-lg mt-8">
         @csrf
