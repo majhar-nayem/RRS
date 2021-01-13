@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RestaurantController;
+use App\Http\Controllers\SeachController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,3 +23,4 @@ Route::get('post/like/{id}', [RestaurantController::class, 'like' ]);
 Route::get('/user/restaurants', [RestaurantController::class, 'index' ])->name('restaurants');
 Route::get('/user/restaurant-add', [RestaurantController::class, 'create' ]);
 Route::post('/user/save-restaurant', [RestaurantController::class, 'store' ]);
+Route::post('search', [SeachController::class, 'index']);
