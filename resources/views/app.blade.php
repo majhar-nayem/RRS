@@ -63,19 +63,6 @@
                                 </a>
                             </li>
 
-
-                            <!-- side navigation list item start -->
-                            <li class="side-navigation-list-item">
-                                <a href="#" class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full">
-                                    <i class="icon float-left image">
-                                        <img src="https://pbs.twimg.com/profile_images/1192060406627545089/SWlYzx4n_normal.jpg" alt="profile image block" class="rounded-full shadow">
-                                    </i>
-                                    <span class="name float-left pl-5 font-bold text-xl">Profile</span>
-                                </a>
-                            </li>
-                            <!-- side navigation list item end -->
-
-
                             <!-- side navigation list item start -->
                             <li class="side-navigation-list-item">
                                 <a href="#" class="clearfix w-auto p-2 px-4 mt-2 transition-3 inline-block rounded-full">
@@ -85,18 +72,31 @@
                                 </a>
                             </li>
                             <!-- side navigation list item end -->
-
+                            @guest()
                             <!-- side navigation list item start -->
                             <li class="side-navigation-list-item">
-                                <a href="#" class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-blue-600 hover:bg-blue-700">
+                                <a href="{{ route('login') }}" class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-blue-600 hover:bg-blue-700">
                                     <span class="name ml-8 pl-5 font-bold text-xl">Login</span>
                                 </a>
                             </li>
                             <li class="side-navigation-list-item">
-                                <a href="#" class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-green-600 hover:bg-blue-700">
+                                <a href="{{ route('register') }}" class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-green-600 hover:bg-blue-700">
                                     <span class="name ml-8 pl-5 font-bold text-xl">Register</span>
                                 </a>
                             </li>
+                            @else
+                                <li class="side-navigation-list-item"><span class="name ml-8 pl-5 font-bold text-xl text-blue-400"> {{ Auth::user()->name }}</span></li>
+                                    <li class="side-navigation-list-item">
+                                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();"
+                                           class="w-full p-2 px-4 mt-2 inline-block rounded-full bg-blue-600 hover:bg-blue-700">
+                                            <span class="name ml-8 pl-5 font-bold text-xl">Logout</span>
+                                        </a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </li>
+                                @endguest
                             <!-- side navigation list item end -->
 
 

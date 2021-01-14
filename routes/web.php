@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::auth();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/user/post', [PostController::class, 'store' ]);
 Route::get('post/like/{id}', [RestaurantController::class, 'like' ]);

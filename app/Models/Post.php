@@ -13,7 +13,8 @@ class Post extends Model
         "image",
         "restaurant_id",
         "ratings",
-        "like"
+        "like",
+        "user_id"
     ];
     public function comments(){
         return $this->hasMany(Comment::class);
