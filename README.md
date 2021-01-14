@@ -20,7 +20,7 @@ Type of app: Web application
 
 Operating system: Any
 
-How to use: link will be provided later.
+How to use: https://rrs.jobntask.com
 
 Written in: html, javascript, css, php
 

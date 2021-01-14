@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\RestaurantController;
 use App\Http\Controllers\SeachController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::auth();
+Auth::routes();
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::post('/user/post', [PostController::class, 'store' ]);
 Route::get('post/like/{id}', [RestaurantController::class, 'like' ]);
