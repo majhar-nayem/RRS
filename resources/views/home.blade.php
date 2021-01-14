@@ -35,7 +35,7 @@
                             @csrf
                             <div class="px-1 mt-4">
                                 <select class="p-2 rounded-md" name="restaurant_id" required>
-                                    <option value="{{ null }}">Select The Restaurant(Optional)</option>
+                                    <option value="{{ null }}">Select The Restaurant</option>
                                     @foreach($restaurants as $restaurant)
                                         <option value="{{ $restaurant->id }}">
                                             <span>{{ $restaurant->name }}</span>
@@ -46,7 +46,7 @@
                             </div>
                             <div class="px-1 mt-2">
                                 <select class="p-2 rounded-md" name="ratings" required>
-                                    <option value="{{ null }}">Rate(optional)</option>
+                                    <option value="{{ null }}">Rate</option>
                                         <option value="1">
                                             <span>1</span>
                                         </option>
